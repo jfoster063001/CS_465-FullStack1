@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const dbURI = 'mongodb://localhost:27017/travlr';
 const readLine = require('readline');   
 
-mongoose.set('useUnifiedTopology', true);
+//mongoose.set('useUnifiedTopology', true);
 
 const connect = () => {
     setTimeout(() => mongoose.connect(dbURI,{
