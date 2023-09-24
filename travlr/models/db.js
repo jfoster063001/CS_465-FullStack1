@@ -7,7 +7,7 @@ mongoose.set('useUnifiedTopology', true);
 
 const connect = () => {
     setTimeout(() => 
-    mongoose.connect(dbURI, {useNewUrlParser: true})
+      mongoose.connect(dbURI, {useNewUrlParser: true})
     , 1000
     );
 };
@@ -48,7 +48,7 @@ process.on('SIGTERM', () => {
   });                                                       
 });       
 
-connect();
+//connect();
 
 //mongoose.connect(dbURI, {useNewUrlParser: true});   
 

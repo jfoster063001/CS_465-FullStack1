@@ -2,5 +2,5 @@ module.exports = {
   modelBaseDirectory: 'models',
   models: '**/*.js',
   data: 'data',
-  db: 'mongodb://localhost:27017/travlr'
+  db: 'mongodb://127.0.0.1:27017/travlr'
 };
