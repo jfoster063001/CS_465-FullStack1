@@ -6,12 +6,11 @@ const readLine = require('readline');
 mongoose.set('useUnifiedTopology', true);
 
 const connect = () => {
-  setTimeout(() => mongoose.connect(dbURI,{
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }), 1000);
+    setTimeout(() => mongoose.connect(dbURI,{
+        useNewUrlParser: true,
+        useCreateIndex: true
+    }), 1000);
 }
-
 
 //mongoose.connect(dbURI, {useNewUrlParser: true});       
 
