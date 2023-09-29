@@ -3,7 +3,7 @@ const Model = mongoose.model('trips');
 
 //get list of trips
 const tripsList = async (req, res) => {
-    Model
+    model
         .find({})//empty filter
         .exec((err, trips) => {
             if (!trips){
@@ -24,7 +24,7 @@ const tripsList = async (req, res) => {
 
 //trips by code
 const tripsFindByCode = async (req, res) => {
-    Model
+    model
         .find({'code': req.params.tripcode })
         .exec((err, trip) => {
             if (!trip){
