@@ -48,7 +48,7 @@ process.on('SIGTERM', () => {
   });                                                       
 });       
 
-//connect();
+connect();
 
 //mongoose.connect(dbURI, {useNewUrlParser: true});   
 
