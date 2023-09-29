@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Model = mongoose.model('trips');
 
 //get list of trips
