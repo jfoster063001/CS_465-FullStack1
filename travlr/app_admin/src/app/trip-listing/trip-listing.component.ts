@@ -8,6 +8,8 @@ import { trips } from '../data/trips';
 })
 export class TripListingComponent implements OnInit {
 
+  trips: Array<any> = trips;
+
   constructor() { }
 
   ngOnInit() {
