@@ -21,14 +21,18 @@ app.set('view engine', 'hbs');
 // register handlebars partials (https://www.npmjs.com/package/hbs)
 hbs.registerPartials(path.join(__dirname, 'app_server','views/partials'));
 
-
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//allow CORS
+app.use('/api', (req,res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  res.header('Access-Contro;_Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+})
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
