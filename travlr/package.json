@@ -16,6 +16,7 @@
     "seedgoose": "^2.0.2"
   },
   "devDependencies": {
-    "@types/http-errors": "^2.0.1"
+    "@types/http-errors": "^2.0.1",
+    "typescript": "^2.7.2"
   }
 }
