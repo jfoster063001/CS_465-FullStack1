@@ -1,4 +1,4 @@
-const request = require('request');
+const axios = require('axios');
 const apiOptions = {
  server: 'http://localhost:3000'
 }
