@@ -11,7 +11,7 @@ export class TripDataService{
 
   private apiBaseUrl = 'http://localhost:3000/api/';
 
-  public getTrips(): Promise<Trip[]>{
+  public getTrips(): Promise<Trip[]> {
     console.log('Inside TripDataService#getTrips');
     return this.http
       .get(`${this.apiBaseUrl}trips`)
@@ -30,7 +30,7 @@ export class TripDataService{
   }
 
   private handleError(error:any): Promise<any> {
-    console.error('Something has gone wrong', error);
+    console.error('Something has gone wrong :(', error);
     return Promise.reject(error.message || error);
   }
  
