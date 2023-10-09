@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 import { Trip } from '../models/trip';
 
 
@@ -13,7 +14,7 @@ export class TripDataService{
   public getTrips(): Promise<Trip[]>{
     console.log('Inside TripDataService#getTrips');
     return this.http
-      .get('${this.apiBaseUrl}trips')
+      .get(`${this.apiBaseUrl}trips`)
       .toPromise()
       .then(response => response as Trip[])
       .catch(this.handleError);
@@ -22,7 +23,7 @@ export class TripDataService{
   public addTrip(formData: Trip): Promise<Trip>{
     console.log('Inside TripDataService#addTrip');
     return this.http
-      .post('${this.apiBaseUrl}trips', formData)
+      .post(`${this.apiBaseUrl}trips`, formData)
       .toPromise()
       .then(response => response as Trip[])
       .catch(this.handleError);
