@@ -1,4 +1,4 @@
-const request = require('request');
+const axios = require('axios');
 const apiOptions = {
  server: 'http://localhost:3000'
 };
@@ -29,22 +29,21 @@ const renderTravelList = (req, res, responseBody) => {
     );
 }
 
-const travelList = (req, res) => {
+const travelList = async (req, res) => {
    const path = '/api/trips';
    const requestOptions ={
-    url: '${apiOptions.server}${path}',
+    url: `${apiOptions.server}${path}`,
     method: 'GET',
     json: {},
    };
    console.info('>>travelController.traveList calling' + requestOptions.url);
-   request(
-    requestOptions,
-    (err, { statusCode }, body) => {
-        if(err){
-            console.error(err);
-        }
-        renderTravelList(req,res, body);
-    }
-   );
+   console.log('line 41 in controller travel.js');
+   try {
+    const response = await axios(requestOptions);
+    renderTravelList(req, res, response.data);
+  } catch (error) {
+    console.error(error);
+    renderTravelList(req, res, []);
+  }
 };
    
