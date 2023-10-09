@@ -6,7 +6,8 @@ const tripsController = require('../controllers/trips');
 /* GET home page. */
 router
     .route('/trips')
-    .get(tripsController.tripsList);
+    .get(tripsController.tripsList)
+    .post(tripsController.tripsAddTrip);
 
 router
     .route('/trips/:tripcode')
