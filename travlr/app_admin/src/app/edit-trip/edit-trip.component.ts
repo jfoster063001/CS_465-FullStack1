@@ -10,6 +10,8 @@ export class EditTripComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    /*
     // retrieve stashed tripId
     let tripCode = localStorage.getItem("tripCode");
     if (!tripCode) {
@@ -50,6 +52,8 @@ export class EditTripComponent implements OnInit {
           this.router.navigate(['']);
         });
     }
+      */
   }
+
 }
    
