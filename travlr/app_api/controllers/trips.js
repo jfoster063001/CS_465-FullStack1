@@ -87,8 +87,7 @@ const tripsUpdateTrip = async (req, res) => {
                 return res
                     .status(404)
                     .send({
-                        message: "Trip not found with code "
-                            + req.params.tripCode
+                        message: "Trip not found with code " + req.params.tripCode
                     });
             }
             res.send(trip);
@@ -97,8 +96,7 @@ const tripsUpdateTrip = async (req, res) => {
                 return res
                     .status(404)
                     .send({
-                        message: "Trip not found with code "
-                            + req.params.tripCode
+                        message: "Trip not found with code " + req.params.tripCode
                     });
             }
             return res
