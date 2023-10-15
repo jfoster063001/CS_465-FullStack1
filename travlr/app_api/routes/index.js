@@ -12,6 +12,7 @@ router
 router
     .route('/register')
     .post(authController.register);
+    
 router
     .route('/trips')
     .get(tripsController.tripsList)
