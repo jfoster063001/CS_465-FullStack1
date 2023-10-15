@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from "@angular/router"
+import { TripDataService } from '../services/trip-data.service';
 
 @Component({
   selector: 'app-edit-trip',
@@ -7,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTripComponent implements OnInit {
 
-  constructor() { }
+  editForm: FormGroup;
+  submitted = false;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private tripService: TripDataService
+  ) { }
 
   ngOnInit() {
-
-    /*
+    
     // retrieve stashed tripId
     let tripCode = localStorage.getItem("tripCode");
     if (!tripCode) {
@@ -52,7 +61,7 @@ export class EditTripComponent implements OnInit {
           this.router.navigate(['']);
         });
     }
-      */
+      
   }
 
 }
