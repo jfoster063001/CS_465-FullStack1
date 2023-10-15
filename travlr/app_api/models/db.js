@@ -53,3 +53,4 @@ connect();
 //mongoose.connect(dbURI, {useNewUrlParser: true});   
 
 require('./travlr');
+require('./user');
