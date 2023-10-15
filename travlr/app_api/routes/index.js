@@ -10,7 +10,7 @@ router
     .post(authController.login);
 
 router
-    .route('register')
+    .route('/register')
     .post(authController.register);
 router
     .route('/trips')
