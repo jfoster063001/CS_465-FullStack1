@@ -53,15 +53,7 @@ export class TripDataService{
     .catch(this.handleError);
    }
    
-   
-
-  private handleError(error:any): Promise<any> {
-    console.error('Something has gone wrong :(', error);
-    return Promise.reject(error.message || error);
-  }
- 
   public login(user: User): Promise<AuthResponse> {
-    76
      return this.makeAuthApiCall('login', user);
     }
     public register(user: User): Promise<AuthResponse> {
@@ -77,5 +69,12 @@ export class TripDataService{
      .catch(this.handleError);
     }
     
+       
+
+  private handleError(error:any): Promise<any> {
+    console.error('Something has gone wrong :(', error);
+    return Promise.reject(error.message || error);
+  }
+ 
 
 }
