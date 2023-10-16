@@ -4,12 +4,6 @@ const apiOptions = {
  server: 'http://localhost:3000'
 };
 
-
-/*
-var fs = require('fs');
-var trips = JSON.parse(fs.readFileSync('./data/trips.json','utf8'));
-
-*/
 const renderTravelList = (req, res, responseBody) => {
     let message = null;
     let pageTitle = process.env.npm_package_description + ' - Travel';
@@ -23,6 +17,7 @@ const renderTravelList = (req, res, responseBody) => {
     }
     res.render('travel',
         {
+            activePage: 'travel',
             title: pageTitle,
             trips: responseBody,
             message

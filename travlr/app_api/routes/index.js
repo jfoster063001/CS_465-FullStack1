@@ -11,6 +11,7 @@ const auth = jwt({
 
 const authController = require('../controllers/authentication');
 const tripsController = require('../controllers/trips');
+const travelController = require('../controllers/travel');
 
 /* GET home page. */
 router

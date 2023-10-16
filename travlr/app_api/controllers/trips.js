@@ -2,6 +2,28 @@ const mongoose = require('mongoose');
 const Model = mongoose.model('trips');
 const User = mongoose.model('users');
 
+/* Render travel list view */
+const renderTripList = (req, res, responseBody) => {
+    let message = null;
+    let pageTitle = packageJson.description + ' | Travel';
+
+    if (!(responseBody instanceof Array)) {
+        message = 'API lookup error';
+        responseBody = [];
+    } else {
+        if (!responseBody.length) {
+            message = 'No trips found in database';
+        }
+    }
+
+    res.render('travel', {
+        activePage: 'travel',
+        title: pageTitle,
+        trips: responseBody,
+        message
+    });
+};
+
 //get list of trips
 const tripsList = async (req, res) => {
     Model
