@@ -13,7 +13,7 @@ require('./app_api/models/db');
 require('./app_api/config/passport')
 
 var indexRouter = require('./app_server/routes/index');
-var usersRouter = require('./app_server/routes/users');
+const usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
 const apiRouter = require('./app_api/routes/index');
 
@@ -50,6 +50,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
 // catch unauthorized error and create 401
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError'){
@@ -58,6 +59,7 @@ app.use((err, req, res, next) => {
       .json({"Message": err.name + ": " + err.message});
   }
 });
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

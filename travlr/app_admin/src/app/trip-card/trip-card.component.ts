@@ -24,9 +24,11 @@ export class TripCardComponent implements OnInit {
     return this.authenticationService.isLoggedIn();
    }
 
-  private editTrip(trip: Trip): void{
-    localStorage.removeItem("tripCode");
-    localStorage.setItem("tripCode", trip.code);
+   editTrip(trip: Trip): void {
+    console.log('TripCardComponent#editTrip setting tripCode in localStorage', trip.code);
+    localStorage.removeItem('tripCode');
+    localStorage.setItem('tripCode', trip.code);
+    console.log('TripCardComponent#editTrip routing to TripEditComponent');
     this.router.navigate(['edit-trip']);
   }
 

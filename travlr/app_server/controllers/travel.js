@@ -1,5 +1,5 @@
-const axios = require('request');
-const { request } = require('../../app');
+const  request = require('request');
+//const { request } = require('../../app');
 const apiOptions = {
  server: 'http://localhost:3000'
 };
@@ -17,13 +17,12 @@ const renderTravelList = (req, res, responseBody) => {
     }
     res.render('travel',
         {
-            activePage: 'travel',
             title: pageTitle,
             trips: responseBody,
             message
         }
     );
-}
+};
 
 const travelList = (req, res) => {
     const path = '/api/trips';
@@ -35,7 +34,7 @@ const travelList = (req, res) => {
     console.info('>>travelController.travelList calling ' + requestOptions.url);
     request(
         requestOptions,
-        (err, { stausCode }, body) => {
+        (err, { statusCode }, body) => {
             if (err) {
                 console.error(err);
             }
