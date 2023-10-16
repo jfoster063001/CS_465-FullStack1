@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-//import { trips } from '../data/trips';
 import { TripDataService } from '../services/trip-data.service';
-import { Trip } from '../models/trip';
-
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
+import { Trip } from '../models/trip'
 
 @Component({
   selector: 'app-trip-listing',
@@ -12,34 +11,35 @@ import { Trip } from '../models/trip';
   providers: [TripDataService]
 })
 export class TripListingComponent implements OnInit {
-
-  // trips: Array<any> = trips;
-  trips: Trip[];
-
-  message: string;
+  trips: Trip[] = [];
+  message: string = '';
 
   constructor(
     private tripDataService: TripDataService,
-    private router: Router
-    ) { }
-
-private addTrip(): void{
-  this.router.navigate(['add-trip']);
-}
-
-private getTrips(): void {
-  console.log('Inside TripListingComponent#getTrips');
-  this.message = 'Searching for trips';
-  this.tripDataService
-    .getTrips()
-      .then(foundTrips => {
-        this.message = foundTrips.length > 0 ? '' : 'No trips found';
-        this.trips = foundTrips;
-      });
-}
+    private authenticationService: AuthenticationService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getTrips();
   }
-}
 
+  private getTrips(): void {
+    console.log('TripListingComponent#getTrips calling TripDataService#getTrips');
+    this.message = 'Searching for trips';
+    this.tripDataService
+      .getTrips()
+      .then(foundTrips => {
+        this.message = foundTrips.length > 0 ? '' : 'No trips found';
+        this.trips = foundTrips;
+      });
+  }
+
+  public addTrip(): void {
+    console.log('TripListingComponent#addTrip routing to TripAddComponent');
+    this.router.navigate(['/add-trip']);
+  }
+
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
+}
